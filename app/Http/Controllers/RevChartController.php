@@ -18,9 +18,11 @@ class RevChartController extends Controller
     public function index()
     {
         //
-
-
-        $data = Rev::all()->where('projectID', '6');
+        $project = request('project', 0);
+     //   $project = 2;
+        $date = request('date', 3);
+     //   dd($project);
+        $data = Rev::all()->where('projectID', $project)->take($date);
         foreach ($data as $thisDate) {
             $labels[] = $thisDate->created_at->format('d M Y');
             $allPipe[] = $thisDate->allPipe;
@@ -82,6 +84,7 @@ class RevChartController extends Controller
 
 
         );
+
     }
 
     /**

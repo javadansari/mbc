@@ -11,6 +11,8 @@
 |
 */
 
+
+
 Route::get('/' , 'SessionController@index');
 Route::get('/create' , 'SessionController@create');
 Route::post('/create','SessionController@store');
@@ -25,4 +27,4 @@ Route::post('/catalogue/create','CatalogueController@store');
 
 Route::get('/get','RevController@store');
 
-Route::get('chart', 'RevChartController@index');
+Route::post('chart', 'RevChartController@index');
