@@ -19,7 +19,6 @@ class RevChartController extends Controller
     {
         //
 
-        $data = Catalogue::all();
 
         $data = Rev::all()->where('projectID', '6');
         foreach ($data as $thisDate) {
@@ -80,6 +79,7 @@ class RevChartController extends Controller
         return view('chart/chart',
             ['revChart' => $revChart],
             ['stressRevChart' => $stressRevChart]
+
 
         );
     }

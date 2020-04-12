@@ -1,8 +1,14 @@
 @extends('layouts.master')
 
+@php
+    use Illuminate\Support\Facades\DB;
+    $projects = (DB::table('projects')->get());
+    $types = (DB::table('types')->get());
+    $sizes = (DB::table('sizes')->get());
+
+@endphp
 
 @section('content')
-
 
 
 
@@ -13,9 +19,9 @@
             <div class="col-sm-12 col-md-6 mt-2" >
                 <label for="project">Project list:</label>
                 <select class="form-control" name="project">
-                    {{--@foreach($projects as $project)--}}
-                    {{--<option>{{ $project->project }}</option>--}}
-                    {{--@endforeach--}}
+                    @foreach($projects as $project)
+                    <option>{{ $project->project }}</option>
+                    @endforeach
                 </select>
             </div>
 
