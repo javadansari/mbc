@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Catalogue;
 use App\Charts\RevChart;
 use App\Rev;
 use Illuminate\Http\Request;
@@ -17,7 +18,10 @@ class RevChartController extends Controller
     public function index()
     {
         //
-        $data = Rev::all()->where('projectID', '11');
+
+        $data = Catalogue::all();
+
+        $data = Rev::all()->where('projectID', '6');
         foreach ($data as $thisDate) {
             $labels[] = $thisDate->created_at->format('d M Y');
             $allPipe[] = $thisDate->allPipe;
