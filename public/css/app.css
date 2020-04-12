@@ -1,0 +1,12 @@
+
+
+@font-face {
+    font-family: 'B Nazanin';
+    src: url('/fonts/bnazanin.ttf') format('truetype')
+
+}
+
+
+body{
+    font-family:B Nazanin;
+}
