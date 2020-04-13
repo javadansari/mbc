@@ -12,6 +12,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="chart">LMS</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="\catalogue\index">Catalogue</a>
                 </li>
                 <li class="nav-item">

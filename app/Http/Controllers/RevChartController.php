@@ -15,14 +15,22 @@ class RevChartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function start()
+    {
+
+        return view('chart/chart'
+
+
+        );
+
+    }
     public function index()
     {
         //
-        $project = request('project', 0);
-     //   $project = 2;
+        $project = request('project', 1);
         $date = request('date', 3);
-     //   dd($project);
-        $data = Rev::all()->where('projectID', $project)->take($date);
+      //  $data = Rev::all()->where('projectID', $project)->orderBy('id', 'desc')->take($date);
+        $data = Rev::where('projectID', $project)->orderBy('id', 'desc')->take($date)->get()->reverse();
         foreach ($data as $thisDate) {
             $labels[] = $thisDate->created_at->format('d M Y');
             $allPipe[] = $thisDate->allPipe;
@@ -81,9 +89,7 @@ class RevChartController extends Controller
         return view('chart/chart',
             ['revChart' => $revChart],
             ['stressRevChart' => $stressRevChart]
-
-
-        );
+        )->with('thisProject',$project)->with('thisDate',$date);
 
     }
 

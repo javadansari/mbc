@@ -1,8 +1,10 @@
-
-
 @font-face {
     font-family: 'B Nazanin';
     src: url('/fonts/bnazanin.ttf') format('truetype')
 
 }
 
+
+select {
+    font-family: "B Nazanin";
+}

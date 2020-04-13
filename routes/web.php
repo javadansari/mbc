@@ -28,3 +28,4 @@ Route::post('/catalogue/create','CatalogueController@store');
 Route::get('/get','RevController@store');
 
 Route::post('chart', 'RevChartController@index');
+Route::get('chart', 'RevChartController@index');
