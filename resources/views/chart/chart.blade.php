@@ -37,19 +37,27 @@
 
             </form>
 
-
             <div class="col-sm-12 col-md-12">
                 <div style="width: 100%">
-                    {!! $revChart->container() !!}
-                    {!! $revChart->script() !!}
+
+                    {!! $allCharts[0]->container() !!}
+                    {!! $allCharts[0]->script() !!}
 
                 </div>
 
             </div>
             <div class="col-sm-12 col-md-12">
                 <div style="width: 100%">
-                    {!! $stressRevChart->container() !!}
-                    {!! $stressRevChart->script() !!}
+                    {!! $allCharts[1]->container() !!}
+                    {!! $allCharts[1]->script() !!}
+
+                </div>
+
+            </div>
+            <div class="col-sm-12 col-md-12">
+                <div style="width: 100%">
+                    {!! $allCharts[2]->container() !!}
+                    {!! $allCharts[2]->script() !!}
 
                 </div>
 
