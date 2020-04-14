@@ -18,7 +18,7 @@ class RevChart extends Chart
 
     public function title(
         string $title,
-        int $font_size = 14,
+        int $font_size = 18,
         string $color = '#666',
         string $font_weight = 'bold',
         string $font_family = "'B Nazanin'"
