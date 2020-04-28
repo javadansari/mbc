@@ -7,6 +7,7 @@ use App\Catalogue;
 use App\Charts\RevChart;
 use App\Rev;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RevChartController extends Controller
 {
@@ -15,15 +16,7 @@ class RevChartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function start()
-    {
 
-        return view('chart/chart'
-
-
-        );
-
-    }
 
     public function index()
     {
@@ -31,9 +24,12 @@ class RevChartController extends Controller
         $project = request('project', 1);
         $date = request('date', 3);
         //  $data = Rev::all()->where('projectID', $project)->orderBy('id', 'desc')->take($date);
-        $data = Rev::where('projectID', $project)->orderBy('id', 'desc')->take($date)->get()->reverse();
+     //   dd(DB::table('revKeeper')->get());
+        $data = DB::table('revKeeper')->where('projectID', $project)->orderBy('id', 'desc')->take($date)->get()->reverse();
+      //  $data = Rev::where('projectID', $project)->orderBy('id', 'desc')->take($date)->get()->reverse();
         foreach ($data as $thisData) {
-            $labels[] = jdate(date('Y-m-d', strtotime($thisData->created_at->format('d M Y'))))->format('Y-m-d');
+            //    $labels[] = jdate(date('Y-m-d', strtotime($thisData->created_at->format('d M Y'))))->format('Y-m-d');
+            $labels[] = jdate(date('Y-m-d', strtotime($thisData->date)))->format('Y-m-d');
             //    dd(jdate(date('Y-m-d', strtotime($thisData->created_at->format('d M Y')))));
             //   $labels[] = $thisDate->created_at->format('d M Y');
             $allPipe[] = $thisData->allPipe;

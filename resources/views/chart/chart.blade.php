@@ -34,8 +34,8 @@
                         <select id="inputState" name="project" class="form-control">
                             @foreach($projects as $project)
                                 <option @if($thisProject == $project->id) selected
-                                        {{$projectName = $project->project}} @endif
-                                        value={{$project->id}} > {{$project->project}}</option>
+                                        {{$projectName = $project->name}} @endif
+                                        value={{$project->id}} > {{$project->name}}</option>
                             @endforeach
                         </select>
                     </div>
