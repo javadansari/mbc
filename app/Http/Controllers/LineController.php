@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Line;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LineController extends Controller
 {
@@ -14,15 +16,12 @@ class LineController extends Controller
     public function index()
     {
         //
-
+     //  (request()->all());
         $project = request('project', 1);
-
-        $allItems = [];
-
+        $jobName = request('jobName', '');
+        $allItems = [$project,$jobName];
         return view('line/lines',
-            ['allCharts' => $allItems])
-            ->with('thisProject', $project);
-
+            ['allItems' => $allItems]);
     }
 
     /**
